@@ -24,7 +24,9 @@
 </template>
 
 <script setup>
-
+  // Bind "sayHello" to a variable using destructuring
+  const { sayHello } = useUtils();
+  sayHello();
 </script>
 
 <style lang="scss" scoped>

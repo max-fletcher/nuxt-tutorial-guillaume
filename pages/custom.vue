@@ -4,9 +4,11 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+  // This is using middleware 'test.ts'
   definePageMeta({
-    layout: 'custom'
+    layout: 'custom',
+    middleware: 'test'
   })
 </script>
 
