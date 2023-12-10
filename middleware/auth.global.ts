@@ -7,6 +7,6 @@ export default defineNuxtRouteMiddleware((to, from) => {
         // if user is logged in, go to page the user wants to go to
         return navigateTo(to.fullPath)
     }
-    
+
     // redirect to login page
 })

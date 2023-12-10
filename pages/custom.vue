@@ -1,6 +1,17 @@
 <template>
-  <div class="CustomPage">
-    Custom Page
+  <div>
+    <div class="CustomPage">
+      Custom Page
+    </div>
+    <div>
+      Counter: {{ counter }}
+      <button @click="counter++">
+        +
+      </button>
+      <button @click="counter--">
+        -
+      </button>
+    </div>
   </div>
 </template>
 
@@ -10,6 +21,8 @@
     layout: 'custom',
     middleware: 'test'
   })
+
+  const counter = useCounter();
 </script>
 
 <style lang="scss" scoped>

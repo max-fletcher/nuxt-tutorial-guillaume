@@ -6,9 +6,22 @@
     {{ $sayHello2('and Henlo') }}
     <br />
     <!-- Using the composable 'sayHello3' that comes from 'useUtils' -->
-    {{ sayHello3('SsethZeenteach') }}
+    {{ sayHello3('Sseth') }}
     <img src="~/assets/asset1.png" alt="From Asset" />
     <br />
+
+    <!-- using nuxtContent for markdown. The name of the file must match the component where it is used. -->
+    <ContentDoc />
+
+    <div>
+      Counter: {{ counter }}
+      <button @click="counter++">
+        +
+      </button>
+      <button @click="counter--">
+        -
+      </button>
+    </div>
 
     <!-- Another way to make alias(see nuxt.config.ts) -->
     <!-- <img src="@/assets/asset1.png" alt="Picture" /> -->
@@ -23,4 +36,6 @@
   const { $sayHello2 } = useNuxtApp();
 
   const { sayHello3 } = useUtils();
+
+  const counter = useCounter();
 </script>
