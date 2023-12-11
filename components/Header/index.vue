@@ -11,6 +11,15 @@
           <li>
             <NuxtLink class="ps-4" to="/custom">Custom</NuxtLink>
           </li>
+          <li>
+            <NuxtLink class="ps-4" to="/testing_usefetch">Testing useFetch</NuxtLink>
+          </li>
+          <li>
+            <NuxtLink class="ps-4" to="/testing_uselazyfetch">Testing useFetch</NuxtLink>
+          </li>
+          <li>
+            <NuxtLink class="ps-4" to="/testing_useasyncdata">Testing useAsyncData</NuxtLink>
+          </li>
         </ul>
       </header>
     <HeaderAvatar />

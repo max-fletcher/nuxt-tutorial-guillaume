@@ -6,6 +6,7 @@
 // The best practice for naming these files is to define separate files for each endpoint and name them like this -> [name].[method].ts
 // i.e 'posts.get.ts', 'posts.post.ts', 'posts.patch.ts' and 'posts.delete.ts'. If you  hit "http://localhost:3000/api/hello", it should still work in browser for 'posts.get.ts'.
 
+
 export default defineEventHandler((e) => {
     console.log(e);
     
