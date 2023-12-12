@@ -7,19 +7,38 @@
       <p>{{ pending ? "Loading" : productsCount }}</p>
       <button @click="refresh">Refresh</button>
     </div>
+
+    <div>
+      Counter: {{ count }}
+      <button @click="sumNum(1)">
+        +
+      </button>
+      <button @click="sumNum(-1)">
+        -
+      </button>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
   // Apparantly, useAsyncData actually can be refreshed using refreshNuxtData
-  const {data : productsCount, pending} = await useAsyncData('products_refresh', () => $fetch('/api/products_async'));
+  const {data : productsCount, pending} = await useAsyncData('products_refresh', () => $fetch('/api/products_async'),
+                                          {
+                                            transform: (_productsCount) => _productsCount
+                                          });
 
-  console.log(toRaw(productsCount));
+  const count = ref(toRaw(productsCount.value.productCount))
+
+  console.log(toRaw(productsCount.value), productsCount.value.productCount, toRaw(count.value));
 
   // binding 'refreshNuxtData' to a variable called 'refresh'. You are free to use another name. When the button is pressed, the 'refresh' function is triggered that re-fetches the data. That is what 'useAsyncData' does.
   // The param passed to 'refreshNuxtData' is the 1st param of 'useAsyncData' which identifies which 'useAsyncData' to refresh/re-fetch if the button is pressed, in case there are multiple 'useAsyncData' and multiple buttons.
   // refreshNuxtData is auto-imported so chill.
-  const refresh = () => refreshNuxtData('products_refresh')
+  const refresh = () => refreshNuxtData('products_refresh');
+
+  function sumNum(val) {
+    count.value += val
+  }
 </script>
 
 <style lang="scss" scoped>

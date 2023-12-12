@@ -27,9 +27,11 @@
   // Hence, we will show a loader while 'useLazyFetch' is attempting to load data from an API call.
   // Notice we don't have 'data' in transform (i.e transform: (_products2) => _products2 instead of transform: (_products2) => _products2.data) because we are returning json in useFetch example but here we
   // are returning a resolve so the data is not wrapped by a data. Hit the route 'http://localhost:3000/api/products2' and 'http://localhost:3000/api/products' using a browser to see the difference.
-  const {data : products2, pending} = await useLazyFetch('/api/products2', {
-    transform: (_products2) => _products2
-  });
+  const {data : products2, pending} = await useLazyFetch('/api/products2', 
+                                        {
+                                          transform: (_products2) => _products2
+                                        }
+                                      );
 
   console.log(toRaw(products2));
 </script>
