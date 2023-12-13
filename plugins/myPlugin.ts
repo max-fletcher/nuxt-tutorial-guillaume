@@ -15,6 +15,5 @@ export default defineNuxtPlugin(nuxtApp => {
         provide: {
             sayHello2: (msg: string) => `Hello ${msg}!`
         },
-        
     }
 })
