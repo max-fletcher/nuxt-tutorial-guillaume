@@ -32,6 +32,29 @@
 </template>
 
 <script setup lang="ts">
+  // Using 'useHead' so the application has better SEO. Use this for page-specific meta tags.
+  useHead({
+    title: 'Nuxt 3 - Events Page',
+    meta: [
+      { 
+        name: 'description', 
+        content: 'Nuxt 3 Practice - Events Page for page specific seo',
+      },
+      {
+        name: 'keywords',
+        content: 'Nuxt3,js, Nuxt3, Nuxt, Vue.js, Vue, Web development, course',
+      },
+      {
+        name: 'og:title',
+        content: '~/assets/asset1.png'
+      }
+    ],
+    bodyAttrs: {
+      class: 'test'
+    },
+    script: [ { innerHTML: 'console.log(\'Hello world\')' } ]
+  })
+
   // binding the directive 'sayHello2' to a variable. It is imperative to use '$' since the directive is coming from the app instance "useNuxtApp()""
   const { $sayHello2 } = useNuxtApp();
 
